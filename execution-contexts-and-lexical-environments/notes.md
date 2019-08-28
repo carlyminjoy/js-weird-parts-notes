@@ -1,0 +1,57 @@
+## Syntax parsers
+
+A program that reads your code & determines what it does & if it's grammar is valid
+
+## Lexical environments
+
+Where something sits physically in the code you write. Where it's written & what surrounds it.
+
+## Single threaded
+
+One command is being executed at a time.
+
+## Synchronous
+
+One at a time and in order. 
+
+## Execution context
+
+A wrapper to help manage the code that is running. Can also contain things beyond what you've written in your code.
+
+- Base execution context: *Global execution context*
+- JS engine creates Global Object and variable `this`
+- If running in a browser, global object (not inside a function) `window` = `this`
+- Each tab/window is it's own global execution context
+- Variables & functions when not lexically sitting inside a function attach to the global object `window` (`this`)
+- Outer environment at global level is null (there's nothing outside)
+
+### Creation phase
+
+- execution context is created
+- global object `this`
+- setup memory space for variables & functions (hoisting)
+- before your code is executed line by line, js engine has already set up memory space for variables & functions, they already exist
+- functions in their entirety are placed in memory, but variables are seperate from their assignments, the value is placed on code execution
+
+### Execution phase
+
+- code is run
+
+## Function invocation & the execution stack
+
+Running a function. In JS, by using parentheses ()
+
+- New execution context is created everytime a function is called
+- Execution context is added to the top of the execution stack
+- Goes through creation & execution phase, and then the execution context is popped off the stack
+
+## Variable environments
+
+Where the variables live, and how they relate to each other in memory.
+
+- Each execution context has it's own variable environment (scope)
+
+## The scope chain
+
+- Every execution context has a reference to it's outer environment
+- Depends on the lexical environment, not the execution stack 
