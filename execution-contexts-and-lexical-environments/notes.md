@@ -14,6 +14,16 @@ One command is being executed at a time.
 
 One at a time and in order. 
 
+## Asynchronous callbacks
+
+More than one at a time.
+
+### Event Queue
+
+- periodically checked & run when execution stack is empty
+- click, http request, etc
+- browser asynchronously puts things into event queue, but the js code is still running line by line (synchronously)
+
 ## Execution context
 
 A wrapper to help manage the code that is running. Can also contain things beyond what you've written in your code.
@@ -55,3 +65,15 @@ Where the variables live, and how they relate to each other in memory.
 
 - Every execution context has a reference to it's outer environment
 - Depends on the lexical environment, not the execution stack 
+
+### Scope
+
+Where a variable is available in your code, and if it's truly the same variable, or a new copy.
+
+- `let` allows js engine to use block scoping
+- during execution phase, still placed in memory, but can't be used until the declaration occurs in the execution phase
+- when declared inside a block, only available inside that block.
+
+
+
+
